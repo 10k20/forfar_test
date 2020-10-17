@@ -1,0 +1,9 @@
+asgiref==3.2.10
+click==7.1.2
+Django==3.1.2
+django-rq==2.3.2
+pytz==2020.1
+redis==3.5.3
+rq==1.5.2
+virtualenv==20.0.35
+sqlparse==0.4.1
