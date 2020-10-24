@@ -26,6 +26,7 @@ DEBUG = 1
 # Для примера: 'DJANGO_ALLOWED_HOSTS=localhost 127.0.0.1 [::1]'
 ALLOWED_HOSTS = ['*']
 
+WKHTMLTOPDF_CMD = '/path/to/my/wkhtmltopdf'
 
 # Application definition
 
@@ -40,6 +41,7 @@ INSTALLED_APPS = [
     'checks',
     'postgres',
     'psycopg2',
+    'wkhtmltopdf',
 ]
 
 MIDDLEWARE = [
