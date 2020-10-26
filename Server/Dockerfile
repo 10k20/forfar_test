@@ -9,7 +9,8 @@ ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
 # install wkhtmltopdf dependencies
-RUN wget https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.3/wkhtmltox-0.12.3_linux-generic-amd64.tar.xz
+RUN apk add --update ca-certificates openssl && update-ca-certificates
+RUN wget https://s3.amazonaws.com/shopify-managemant-app/wkhtmltopdf-0.9.9-static-amd64.tar.bz2
 RUN tar xvjf wkhtmltopdf-0.9.9-static-amd64.tar.bz2
 RUN mv wkhtmltopdf-amd64 /usr/local/bin/wkhtmltopdf
 RUN chmod +x /usr/local/bin/wkhtmltopdf
