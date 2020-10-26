@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.postgres.fields import JSONField
 
 class Printer(models.Model):
     name = models.CharField(max_length=120)
@@ -12,9 +13,6 @@ class Printer(models.Model):
 class Check(models.Model):
     printer_id = models.ForeignKey('Printer', on_delete=models.CASCADE, blank=False, null=False)
     type = models.CharField(max_length=120)
-    order = models.JSONField()
+    order = models.JSONField(blank=True, null=True)
     status = models.CharField(max_length=120)
     pdf_file = models.FileField
-
-    def __str__(self):
-        return self.name
