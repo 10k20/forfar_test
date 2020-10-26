@@ -24,7 +24,7 @@ def list_status_types():
 
 class Printer(models.Model):
     name = models.CharField(max_length=120)
-    api_key = models.CharField(max_length=120, default=api_key, unique=True)
+    api_key = models.CharField(max_length=120, default=api_key)
     check_type = models.CharField(max_length=120, choices=list_check_types(), blank=False, null=False)
     point_id = models.IntegerField()
 
