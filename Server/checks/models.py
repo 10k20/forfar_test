@@ -24,19 +24,19 @@ def list_status_types():
 
 class Printer(models.Model):
     name = models.CharField(max_length=120)
-    api_key = models.CharField(max_length=120, default=api_key, unique=True)
+    api_key = models.CharField(max_length=120, default=api_key)
     check_type = models.CharField(max_length=120, choices=list_check_types(), blank=False, null=False)
     point_id = models.IntegerField()
 
     def __str__(self):
-        return self.name + ' ' + self.check_type
+        return self.name + ' ' + self.check_type + ' | Point:' + str(self.point_id)
 
 class Check(models.Model):
-    printer_id = models.ForeignKey('Printer', on_delete=models.CASCADE, blank=False, null=False)
+    printer_id = models.ForeignKey('Printer', on_delete=models.CASCADE, blank=True, null=True)
     type = models.CharField(max_length=120, choices=list_check_types(), blank=False, null=False)
     order = models.JSONField(blank=True, null=True)
     status = models.CharField(max_length=120, choices=list_status_types(), blank=False, null=False)
     pdf_file = models.FileField
 
     def __str__(self):
-        return self.type + ' ' + self.status
+        return self.type + ' ' + self.status + ' ' + str(self.printer_id)
