@@ -13,3 +13,7 @@ services:
     restart: always
     ports:
       - 8020:8080
+  wkhtmltopdf:
+    image: openlabs/docker-wkhtmltopdf-aas:latest
+    volumes:
+      - .:/data
